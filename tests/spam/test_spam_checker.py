@@ -6,7 +6,7 @@ import os
 
 import numpy as np
 
-from spam_messages import SpamChecker
+from src.spam_checker import SpamChecker
 
 
 class TestSpamChecker(unittest.TestCase):

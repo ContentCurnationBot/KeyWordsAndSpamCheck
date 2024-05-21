@@ -1,4 +1,4 @@
-from key_words import check_for_keywords
+from src.keywords_checker import check_for_keywords
 
 
 if __name__ == '__main__':
