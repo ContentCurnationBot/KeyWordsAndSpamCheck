@@ -22,4 +22,5 @@ def check_for_keywords(text, keywords):
     normalized_text = [normalize_word(word) for word in text.split()]
     # Нормализуем ключевые слова
     normalized_keywords = [normalize_word(word) for word in keywords]
+    #Возвращаем словарь, где для каждого ключевого слова указано его наличие в тексте
     return {keyword: keyword in normalized_text for keyword in normalized_keywords}

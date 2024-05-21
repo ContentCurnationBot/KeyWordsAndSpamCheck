@@ -34,7 +34,6 @@ class SpamChecker:
         return joblib.load(filename)
 
     def check_spam(self, new_messages: list, threshold=0.8):
-        # Проверка новых сообщений поочередно
         for new_message in new_messages:
             # Преобразование нового сообщения в TF-IDF вектор
             new_message_tfidf = self.vectorizer.transform([new_message])
@@ -49,9 +48,8 @@ class SpamChecker:
                 is_spam[new_message] = False
                 # Добавление нового сообщения в список сообщений
                 self.messages.append(new_message)
-                # Обновление TF-IDF матрицы
+                # Обновление и сохранение TF-IDF матрицы
                 self.tfidf_matrix = self.vectorizer.fit_transform(self.messages)
-                # Сохранение обновленного векторизатора и матрицы
                 self.save_vectorizer_and_matrix(self.vectorizer, self.tfidf_matrix, self.vectorizer_file)
                 # Сохранение обновленного списка сообщений в .csv файл
                 with open(self.messages_file, 'a', newline='', encoding='utf-8') as csvfile:
